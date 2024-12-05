@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Log In Button -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="92dp"
+        android:text="צא להיתאמן ישמן!"
+        android:textColor="#0000FF"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/img" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Log In"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+</LinearLayout>
