@@ -24,17 +24,14 @@ class MainPage : AppCompatActivity() {
         val my_profile_button = findViewById<Button>(R.id.my_profile_button)
         my_profile_button.setOnClickListener {
             val nextPage = Intent(this, MyProfile::class.java)
-            nextPage.putExtra("myProfile",my_profile_button.text.toString())
+            nextPage.putExtra("myProfile", my_profile_button.text.toString())
             startActivity(nextPage)
-
+        }
         // Main buttons actions
         findViewById<Button>(R.id.start_workout_button).setOnClickListener {
             Toast.makeText(this, "Start Workout clicked!", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<Button>(R.id.my_profile_button).setOnClickListener {
-            Toast.makeText(this, "My Profile clicked!", Toast.LENGTH_SHORT).show()
-        }
 
         findViewById<Button>(R.id.my_goal_button).setOnClickListener {
             Toast.makeText(this, "My Goal clicked!", Toast.LENGTH_SHORT).show()
@@ -46,4 +43,4 @@ class MainPage : AppCompatActivity() {
 
     }
 }
-}
+
