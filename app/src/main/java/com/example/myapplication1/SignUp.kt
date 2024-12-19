@@ -28,6 +28,7 @@ class SignUp : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.editTextEmail)
         val enterButton = findViewById<Button>(R.id.buttonEnter)
         enterButton.setOnClickListener {
+            
             val nextPage = Intent(this, MainPage::class.java)
             Toast.makeText(this, nameEditText.text.toString(), Toast.LENGTH_SHORT).show()
             nextPage.putExtra("userName",nameEditText.text.toString())

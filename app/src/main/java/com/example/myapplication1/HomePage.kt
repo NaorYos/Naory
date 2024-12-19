@@ -3,6 +3,7 @@ package com.example.myapplication1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -16,6 +17,9 @@ class HomePage : AppCompatActivity() {
              val nextPage = Intent(this, SignUp::class.java)
              startActivity(nextPage)
              finish()
+             val intent = Intent()
+             val str = intent?.getStringExtra("btnLogIn").toString()
          }
+
 
      }}
