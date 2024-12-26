@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-class LogIn {
-    class Login : AppCompatActivity() {
-
+class Login : AppCompatActivity() {
         private lateinit var etUsername: EditText
         private lateinit var etPassword: EditText
         private lateinit var tvForgotPassword: TextView
@@ -40,8 +38,8 @@ class LogIn {
                 } else {
                     // TODO: Add authentication logic here
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    val nextPage = Intent(this, HomePage::class.java)
-                    intent.putExtra("btnLogin",etUsername.text.toString())
+                    val nextPage = Intent(this, MainPage::class.java)
+                    intent.putExtra("UserName",etUsername.text.toString())
                     startActivity(nextPage)
                 }
             }
@@ -59,5 +57,5 @@ class LogIn {
                 startActivity(intent)
             }
         }
-    }}
+    }
 

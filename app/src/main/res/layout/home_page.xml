@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="92dp"
-        android:text="צא להיתאמן ישמן!"
+        android:text="צא להתאמן ישמן!"
         android:textColor="#0000FF"
         android:textSize="35sp" />
 

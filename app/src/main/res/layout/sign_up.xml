@@ -19,23 +19,11 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp" />
 
-    <!-- Name Input -->
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/UserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#D3D3D3" />
-
-    <!-- Last Name Input -->
-    <EditText
-        android:id="@+id/editTextLastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Last Name"
+        android:hint="UserName"
         android:inputType="textPersonName"
         android:padding="12dp"
         android:layout_marginBottom="12dp"
@@ -44,15 +32,14 @@
     <!-- password Input -->
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D3D3D3"
         android:hint="password"
         android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#D3D3D3" />
+        android:padding="12dp" />
 
-    <!-- Enter Button -->
     <Button
         android:id="@+id/buttonEnter"
         android:layout_width="match_parent"
