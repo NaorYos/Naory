@@ -21,12 +21,13 @@ class SignUp : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         // Initialize UI elements with correct IDs
         val enterButton = findViewById<Button>(R.id.buttonEnter)
         enterButton.setOnClickListener {
+            val userName = findViewById<EditText>(R.id.UserName).text.toString()
+            Toast.makeText(this, userName, Toast.LENGTH_SHORT).show()
             val nextPage = Intent(this, MainPage::class.java)
-            //intent.putExtra("UserName",etUsername.text.toString())
+            nextPage.putExtra("userName", userName)
             startActivity(nextPage)
         }
 
