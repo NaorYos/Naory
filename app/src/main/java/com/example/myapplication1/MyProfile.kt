@@ -14,11 +14,10 @@ class MyProfile  : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.my_profile)
-            
-            val editTextText = findViewById<EditText>(R.id.editTextText).text.toString()
-            val nextPage = Intent(this, MyProfile::class.java)
-            nextPage.putExtra("editTextText",editTextText)
-            startActivity(nextPage)
+
+            val editTextText:TextView = findViewById(R.id.editTextText)
+            val userName = intent.getStringExtra("userName") ?: "guest"
+            text.text = "Hello! $userName"
 
         }
     }
