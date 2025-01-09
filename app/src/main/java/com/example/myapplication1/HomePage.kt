@@ -19,10 +19,7 @@ class HomePage : AppCompatActivity() {
              startActivity(nextPage)
          })
 
-             //val intent = Intent()
-           //  val str = intent?.getStringExtra("btnLogIn").toString()
          logIn.setOnClickListener({val nextPage = Intent(this, Login::class.java)
-             //val str = intent?.getStringExtra("btnLogIn").toString()
              startActivity(nextPage)})
      }
 }

@@ -16,7 +16,7 @@ class MainPage : AppCompatActivity() {
 
         val text:TextView = findViewById(R.id.hello_text)
         val userName = intent.getStringExtra("userName") ?: "guest"
-        text.text = "hello $userName"
+        text.text = "Hello! $userName"
 
         // מסך אחריכפתור myProfile
         val my_profile_button = findViewById<Button>(R.id.my_profile_button)
