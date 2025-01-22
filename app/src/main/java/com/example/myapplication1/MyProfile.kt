@@ -15,9 +15,11 @@ class MyProfile  : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.my_profile)
 
-            val editTextText:TextView = findViewById(R.id.editTextText)
-            val userName = intent.getStringExtra("userName") ?: "guest"
-            text.text = "Hello! $userName"
+            val text:TextView = findViewById(R.id.usernametext)
+            val userName = intent.getStringExtra("myProfile") ?: "guest"
+            text.text = "$userName"
+
+
 
         }
     }

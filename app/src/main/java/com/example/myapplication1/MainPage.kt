@@ -16,13 +16,13 @@ class MainPage : AppCompatActivity() {
 
         val text:TextView = findViewById(R.id.hello_text)
         val userName = intent.getStringExtra("userName") ?: "guest"
-        text.text = "Hello! $userName"
+        text.text = "Hello $userName"
 
         // מסך אחריכפתור myProfile
         val my_profile_button = findViewById<Button>(R.id.my_profile_button)
         my_profile_button.setOnClickListener {
             val nextPage = Intent(this, MyProfile::class.java)
-            nextPage.putExtra("myProfile", my_profile_button.text.toString())
+            nextPage.putExtra("myProfile",userName)
             startActivity(nextPage)
         }
         // Main buttons actions

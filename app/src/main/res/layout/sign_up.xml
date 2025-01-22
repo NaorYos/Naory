@@ -23,7 +23,7 @@
         android:id="@+id/UserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="UserName"
+        android:hint="Type your gmail"
         android:inputType="textPersonName"
         android:padding="12dp"
         android:layout_marginBottom="12dp"
@@ -31,12 +31,12 @@
 
     <!-- password Input -->
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/Password"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#D3D3D3"
-        android:hint="password"
+        android:hint="Type your password"
         android:inputType="textEmailAddress"
         android:padding="12dp" />
 
