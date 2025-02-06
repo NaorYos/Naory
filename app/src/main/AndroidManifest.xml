@@ -39,6 +39,18 @@
             android:name=".MyProfile"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".MyFriends"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MyGoal"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".StartWorkout"
+            android:exported="true">
+        </activity>
 
     </application>
 

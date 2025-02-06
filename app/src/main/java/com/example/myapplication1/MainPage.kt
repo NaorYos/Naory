@@ -14,7 +14,7 @@ class MainPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
 
-        val text:TextView = findViewById(R.id.hello_text)
+        val text: TextView = findViewById(R.id.hello_text)
         val userName = intent.getStringExtra("userName") ?: "guest"
         text.text = "Hello $userName"
 
@@ -22,23 +22,35 @@ class MainPage : AppCompatActivity() {
         val my_profile_button = findViewById<Button>(R.id.my_profile_button)
         my_profile_button.setOnClickListener {
             val nextPage = Intent(this, MyProfile::class.java)
-            nextPage.putExtra("myProfile",userName)
+            nextPage.putExtra("myProfile", userName)
             startActivity(nextPage)
         }
         // Main buttons actions
         findViewById<Button>(R.id.start_workout_button).setOnClickListener {
-            Toast.makeText(this, "Start Workout clicked!", Toast.LENGTH_SHORT).show()
+            val start_workout_button = findViewById<Button>(R.id.start_workout_button)
+            start_workout_button.setOnClickListener {
+                val nextPage = Intent(this, MyFriends::class.java)
+                nextPage.putExtra("start_workout_button", userName)
+                startActivity(nextPage)
         }
 
 
         findViewById<Button>(R.id.my_goal_button).setOnClickListener {
-            Toast.makeText(this, "My Goal clicked!", Toast.LENGTH_SHORT).show()
+        val my_goal_button = findViewById<Button>(R.id.my_goal_button)
+        my_goal_button.setOnClickListener {
+                val nextPage = Intent(this, MyGoal::class.java)
+                nextPage.putExtra("myGoal", userName)
+                startActivity(nextPage)
         }
 
         findViewById<Button>(R.id.my_friends_button).setOnClickListener {
-            Toast.makeText(this, "My Friends clicked!", Toast.LENGTH_SHORT).show()
-        }
+            val my_friends_button = findViewById<Button>(R.id.my_friends_button)
+            my_friends_button.setOnClickListener {
+                val nextPage = Intent(this, MyFriends::class.java)
+                nextPage.putExtra("myFriends", userName)
+                startActivity(nextPage)
+            }
 
-    }
-}
+        }
+    }}}}
 
