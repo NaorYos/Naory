@@ -19,38 +19,33 @@ class MainPage : AppCompatActivity() {
         text.text = "Hello $userName"
 
         // מסך אחריכפתור myProfile
-        val my_profile_button = findViewById<Button>(R.id.my_profile_button)
+            val my_profile_button = findViewById<Button>(R.id.my_profile_button)
         my_profile_button.setOnClickListener {
             val nextPage = Intent(this, MyProfile::class.java)
             nextPage.putExtra("myProfile", userName)
             startActivity(nextPage)
         }
         // Main buttons actions
-        findViewById<Button>(R.id.start_workout_button).setOnClickListener {
-            val start_workout_button = findViewById<Button>(R.id.start_workout_button)
-            start_workout_button.setOnClickListener {
-                val nextPage = Intent(this, MyFriends::class.java)
+        val start_workout_button = findViewById<Button>(R.id.start_workout_button)
+       start_workout_button.setOnClickListener {
+                val nextPage = Intent(this, StartWorkout::class.java)
                 nextPage.putExtra("start_workout_button", userName)
                 startActivity(nextPage)
         }
 
-
-        findViewById<Button>(R.id.my_goal_button).setOnClickListener {
-        val my_goal_button = findViewById<Button>(R.id.my_goal_button)
-        my_goal_button.setOnClickListener {
+        val myGoal_button =  findViewById<Button>(R.id.my_goal_button)
+        myGoal_button.setOnClickListener {
                 val nextPage = Intent(this, MyGoal::class.java)
                 nextPage.putExtra("myGoal", userName)
                 startActivity(nextPage)
         }
-
-        findViewById<Button>(R.id.my_friends_button).setOnClickListener {
-            val my_friends_button = findViewById<Button>(R.id.my_friends_button)
-            my_friends_button.setOnClickListener {
+        val my_freinds_button = findViewById<Button>(R.id.my_friends_button)
+        my_freinds_button.setOnClickListener {
                 val nextPage = Intent(this, MyFriends::class.java)
                 nextPage.putExtra("myFriends", userName)
                 startActivity(nextPage)
             }
 
         }
-    }}}}
+    }
 

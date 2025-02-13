@@ -24,6 +24,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:padding="16dp"
+            android:background="#050505"
+            android:textColor="#ffffff"
             android:text="Run"
             android:textAllCaps="false" />
 
@@ -37,6 +39,7 @@
             android:padding="16dp"
             android:background="#050505"
             android:text="Walk"
+            android:textColor="#ffffff"
             android:textAllCaps="false" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -47,6 +50,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:padding="16dp"
+            android:background="#050505"
+            android:textColor="#ffffff"
             android:text="Lift"
             android:textAllCaps="false" />
 
@@ -58,6 +63,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:padding="16dp"
+            android:background="#050505"
+            android:textColor="#ffffff"
             android:text="Swim"
             android:textAllCaps="false" />
 
