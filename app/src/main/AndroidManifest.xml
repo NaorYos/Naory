@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyApplication1"
         tools:targetApi="31">
         <activity
-            android:name=".MainPage"
+            android:name=".HomePage"
             android:exported="true">
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,7 @@
 
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name=".MainPage"
             android:exported="true">
         </activity>
         <activity
@@ -51,7 +51,14 @@
             android:name=".StartWorkout"
             android:exported="true">
         </activity>
-
+        <activity
+            android:name=".FireStore"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".UserAdapter"
+            android:exported="true">
+        </activity>
     </application>
 
-</manifest>
+    </manifest>

@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +36,29 @@ class SignUp : AppCompatActivity() {
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = auth.currentUser
 
+                        // Create Firestore instance
+                        val db = FirebaseFirestore.getInstance()
 
-                        Toast.makeText(this, userName, Toast.LENGTH_SHORT).show()
-                        val nextPage = Intent(this, MainPage::class.java)
-                        nextPage.putExtra("userName", userName)
-                        startActivity(nextPage)
+                        // Create user data map
+                        val userMap = hashMapOf(
+                            "email" to userName,
+                            "uid" to user?.uid,
+                            "createdAt" to System.currentTimeMillis()
+                        )
+
+                        // Add user to database
+                        db.collection("users")
+                            .document(user?.uid ?: "")
+                            .set(userMap)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "User added successfully!", Toast.LENGTH_SHORT).show()
+                                val nextPage = Intent(this, MainPage::class.java)
+                                nextPage.putExtra("userName", userName)
+                                startActivity(nextPage)
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Error adding user: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
