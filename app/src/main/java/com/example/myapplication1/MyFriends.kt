@@ -23,55 +23,60 @@ class MyFriends : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         searchView = findViewById(R.id.searchView)
-
+        
+        // עדכון הטקסט ברמז החיפוש
+        searchView.queryHint = "Search by Gmail..."
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // התחל עם רשימה ריקה
+        userAdapter = UserAdapter(emptyList(), FirebaseAuth.getInstance().currentUser?.uid ?: "")
+        recyclerView.adapter = userAdapter
         currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-
-        fetchUsers()
-
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                filterUsers(query)
+                if (!query.isNullOrEmpty()) {
+                    searchUsers(query)
+                }
                 return false
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterUsers(newText)
+                if (!newText.isNullOrEmpty()) {
+                    searchUsers(newText)
+                } else {
+                    // אם שדה החיפוש ריק, הצג רשימה ריקה
+                    userAdapter = UserAdapter(emptyList(), currentUserId)
+                    recyclerView.adapter = userAdapter
+                }
                 return false
             }
         })
     }
 
-    private fun fetchUsers() {
+    private fun searchUsers(query: String) {
         val db = FirebaseFirestore.getInstance()
-
-        db.collection("users").get()
+        
+        db.collection("users")
+            .get()
             .addOnSuccessListener { result ->
-                userList.clear()
+                val filteredUsers = mutableListOf<User>()
                 for (document in result) {
                     val user = User(
                         points = document.id,
                         name = document.getString("name") ?: "",
                         email = document.getString("email") ?: ""
                     )
-                    if (user.points != currentUserId) {
-                        userList.add(user)
+                    // הוסף את המשתמש לרשימה רק אם הוא מתאים לחיפוש ואינו המשתמש הנוכחי
+                    if (user.points != currentUserId && 
+                        (user.name.contains(query, ignoreCase = true) || 
+                         user.email.contains(query, ignoreCase = true))) {
+                        filteredUsers.add(user)
                     }
                 }
-                userAdapter = UserAdapter(userList, currentUserId)
+                userAdapter = UserAdapter(filteredUsers, currentUserId)
                 recyclerView.adapter = userAdapter
             }
             .addOnFailureListener { exception ->
                 Log.w("Firestore", "Error getting documents.", exception)
             }
-    }
-
-    private fun filterUsers(query: String?) {
-        val filteredList = userList.filter {
-            it.name.contains(query ?: "", ignoreCase = true)
-        }
-        userAdapter = UserAdapter(filteredList, currentUserId)
-        recyclerView.adapter = userAdapter
     }
 }
