@@ -42,32 +42,6 @@
             android:textColor="#ffffff"
             android:textAllCaps="false" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/liftButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            android:padding="16dp"
-            android:background="#050505"
-            android:textColor="#ffffff"
-            android:text="Lift"
-            android:textAllCaps="false" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/swimButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            android:padding="16dp"
-            android:background="#050505"
-            android:textColor="#ffffff"
-            android:text="Swim"
-            android:textAllCaps="false" />
-
     </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
