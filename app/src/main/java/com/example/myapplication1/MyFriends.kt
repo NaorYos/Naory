@@ -15,7 +15,7 @@ class MyFriends : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchView: SearchView
     private lateinit var userAdapter: UserAdapter
-    private val userList = mutableListOf<User>()
+    private val userList = mutableListOf<UserClass>()
     private var currentUserId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,9 +61,9 @@ class MyFriends : AppCompatActivity() {
         db.collection("users")
             .get()
             .addOnSuccessListener { result ->
-                val filteredUsers = mutableListOf<User>()
+                val filteredUsers = mutableListOf<UserClass>()
                 for (document in result) {
-                    val user = User(
+                    val user = UserClass(
                         points = document.id,
                         name = document.getString("name") ?: "",
                         email = document.getString("email") ?: ""
@@ -86,7 +86,7 @@ class MyFriends : AppCompatActivity() {
     //שמירת חברים ברשימה
     private fun fetchUser() {
             val db = FirebaseFirestore.getInstance()
-            val friendsList = mutableListOf<User>()
+            val friendsList = mutableListOf<UserClass>()
 
             if (currentUserId.isEmpty()) return
 
@@ -96,7 +96,7 @@ class MyFriends : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { userFriendDocs ->
                     for (document in userFriendDocs) {
-                        val user = User(
+                        val user = UserClass(
                             points = document.id,
                             name = document.getString("name") ?: "",
                             email = document.id ?: "",
@@ -113,7 +113,7 @@ class MyFriends : AppCompatActivity() {
     }
     private fun friendProfile() {
         val db = FirebaseFirestore.getInstance()
-        val friendsList = mutableListOf<User>()
+        val friendsList = mutableListOf<UserClass>()
 
     }
 }

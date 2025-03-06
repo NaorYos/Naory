@@ -1,15 +1,12 @@
 package com.example.myapplication1
 
 import android.content.ContentValues.TAG
-import android.content.Intent
-import android.nfc.Tag
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +14,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserAdapter(
-    private val users: List<User>,
+    private val users: List<UserClass>,
     private val currentUserId: String
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
