@@ -62,6 +62,10 @@
             android:name=".RunGoal"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".WalkGoal"
+            android:exported="true">
+        </activity>
     </application>
 
     </manifest>

@@ -21,6 +21,14 @@ class MyGoal : AppCompatActivity() {
             val nextPage = Intent(this, RunGoal::class.java)
             nextPage.putExtra("runButton", userName)
             startActivity(nextPage)
+
+            val userName = intent.getStringExtra("userName") ?: "guest"
+
         }
+        val walkButton = findViewById<Button>(R.id.walkButton)
+        walkButton.setOnClickListener {
+            val nextPage = Intent(this, WalkGoal::class.java)
+            nextPage.putExtra("walkButton", userName)
+            startActivity(nextPage)
     }
-}
+}}
