@@ -47,7 +47,7 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".StartWorkout"
+            android:name=".StartWorkoutMain"
             android:exported="true">
         </activity>
         <activity
@@ -64,6 +64,10 @@
         </activity>
         <activity
             android:name=".WalkGoal"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".RunWorkout"
             android:exported="true">
         </activity>
     </application>

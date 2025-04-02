@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -28,7 +27,7 @@ class MainPage : AppCompatActivity() {
         // Main buttons actions
         val start_workout_button = findViewById<Button>(R.id.start_workout_button)
        start_workout_button.setOnClickListener {
-                val nextPage = Intent(this, StartWorkout::class.java)
+                val nextPage = Intent(this, StartWorkoutMain::class.java)
                 nextPage.putExtra("start_workout_button", userName)
                 startActivity(nextPage)
         }
