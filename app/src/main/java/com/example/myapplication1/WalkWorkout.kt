@@ -28,7 +28,7 @@ class WalkWorkout : AppCompatActivity() {
             override fun run() {
                 if (isWalking) {
                     timeElapsed++
-                    timerTextView.text = "Time: $timeElapsed sec"
+                    timerTextView.text = formatTime(timeElapsed) // Changed to use formatted time
                     handler.postDelayed(this, 1000)
                 }
             }
@@ -52,9 +52,15 @@ class WalkWorkout : AppCompatActivity() {
             isWalking = false // Stop the timer
             handler.removeCallbacks(timerWalkable) // Ensure timer stops
             timeElapsed = 0 // Reset time
-            timerTextView.text = "Time: 0 sec" // Update UI
+            timerTextView.text = formatTime(timeElapsed) // Changed to use formatted time
             walkButton.text = "Run" // Reset button text
         }
+    }
+    private fun formatTime(seconds: Int): String { // Added function to format time correctly
+        val hours = seconds / 3600
+        val minutes = (seconds % 3600) / 60
+        val secs = seconds % 60
+        return String.format("%02d:%02d:%02d", hours, minutes, secs)
     }
 
     override fun onDestroy() {

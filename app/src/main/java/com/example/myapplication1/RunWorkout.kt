@@ -20,13 +20,13 @@ class RunWorkout : AppCompatActivity() {
 
         val timerTextView: TextView = findViewById(R.id.timerTextView)
         val runButton: Button = findViewById(R.id.runButton)
-        val resetButton: Button = findViewById(R.id.resetButton) // Added Reset button
+        val resetButton: Button = findViewById(R.id.resetButton)
 
         timerRunnable = object : Runnable {
             override fun run() {
                 if (isRunning) {
                     timeElapsed++
-                    timerTextView.text = "Time: $timeElapsed sec"
+                    timerTextView.text = formatTime(timeElapsed)
                     handler.postDelayed(this, 1000)
                 }
             }
@@ -34,29 +34,34 @@ class RunWorkout : AppCompatActivity() {
 
         runButton.setOnClickListener {
             if (isRunning) {
-                // Stop the timer
                 isRunning = false
                 handler.removeCallbacks(timerRunnable)
                 runButton.text = "Run"
             } else {
-                // Start the timer
                 isRunning = true
                 handler.post(timerRunnable)
                 runButton.text = "Stop"
             }
         }
 
-        resetButton.setOnClickListener { // Added Reset button functionality
-            isRunning = false // Stop the timer
-            handler.removeCallbacks(timerRunnable) // Ensure timer stops
-            timeElapsed = 0 // Reset time
-            timerTextView.text = "Time: 0 sec" // Update UI
-            runButton.text = "Run" // Reset button text
+        resetButton.setOnClickListener {
+            isRunning = false
+            handler.removeCallbacks(timerRunnable)
+            timeElapsed = 0
+            timerTextView.text = formatTime(timeElapsed)
+            runButton.text = "Run"
         }
+    }
+
+    private fun formatTime(seconds: Int): String {
+        val hours = seconds / 3600
+        val minutes = (seconds % 3600) / 60
+        val secs = seconds % 60
+        return String.format("%02d:%02d:%02d", hours, minutes, secs)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        handler.removeCallbacks(timerRunnable) // Ensure timer stops when activity is destroyed
+        handler.removeCallbacks(timerRunnable)
     }
 }
