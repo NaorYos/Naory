@@ -27,18 +27,19 @@ class Login : AppCompatActivity() {
             val btnLogin:Button = findViewById(R.id.btnLogin)
             val signUp:Button = findViewById(R.id.signUp)
             btnLogin.setOnClickListener {
-                val Password = findViewById<EditText>(R.id.Password).text.toString()
+                val password = findViewById<EditText>(R.id.password).text.toString()
                 val Username = findViewById<EditText>(R.id.Username).text.toString()
-                auth.signInWithEmailAndPassword(Username, Password)
+                auth.signInWithEmailAndPassword(Username, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success")
                             val user = auth.currentUser
+
                             val nextPage = Intent(this, MainPage::class.java)
                             nextPage.putExtra("userName",Username)
-                            startActivity(nextPage)                        } else {
-                            // If sign in fails, display a message to the user.
+                            nextPage.putExtra("password", password)
+                            startActivity(nextPage)} else {
+
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
                             Toast.makeText(
                                 baseContext,

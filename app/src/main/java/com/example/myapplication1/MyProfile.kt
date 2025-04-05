@@ -19,11 +19,8 @@ class MyProfile  : AppCompatActivity() {
             val userName = intent.getStringExtra("myProfile") ?: "guest"
             text.text = "$userName"
 
-            // קבל את הסיסמה מה-intent
-            val userPassword = intent.getStringExtra("password") ?: ""
-            
-            // כאן אתה יכול להשתמש בסיסמה כרצונך
-            // למשל, להציג אותה או לשמור אותה
+            val text1:TextView = findViewById(R.id.password)
+            val password = intent.getStringExtra("password") ?: ""
 
         }
     }
