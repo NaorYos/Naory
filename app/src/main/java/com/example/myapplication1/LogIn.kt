@@ -1,5 +1,6 @@
 package com.example.myapplication1
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -16,10 +17,11 @@ import com.google.firebase.auth.auth
 
 class Login : AppCompatActivity() {
 
+        @SuppressLint("MissingInflatedId")
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             enableEdgeToEdge()
-            setContentView(R.layout.log_in)
+            setContentView(R.layout.login)
             lateinit var auth: FirebaseAuth
             auth = Firebase.auth
             val currentUser = auth.currentUser
