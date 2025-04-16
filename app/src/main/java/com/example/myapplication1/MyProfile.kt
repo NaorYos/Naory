@@ -19,9 +19,6 @@ class MyProfile  : AppCompatActivity() {
             val userName = intent.getStringExtra("myProfile") ?: "guest"
             text.text = "$userName"
 
-            val text1:TextView = findViewById(R.id.password)
-            val password = intent.getStringExtra("password") ?: ""
-
         }
     }
 
