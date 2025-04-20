@@ -12,14 +12,14 @@ class HomePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.home_page)
-         val signUp:Button = findViewById(R.id.signUpButton)
+         val signUp:Button = findViewById(R.id.signupButton)
          val logIn:Button = findViewById(R.id.loginButton)
-         signUp.setOnClickListener({
+         signUp.setOnClickListener{
              val nextPage = Intent(this, SignUp::class.java)
              startActivity(nextPage)
-         })
+         }
 
-         logIn.setOnClickListener({val nextPage = Intent(this, Login::class.java)
-             startActivity(nextPage)})
+         logIn.setOnClickListener{val nextPage = Intent(this, Login::class.java)
+             startActivity(nextPage)}
      }
 }
