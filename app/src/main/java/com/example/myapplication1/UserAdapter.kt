@@ -44,7 +44,7 @@ class UserAdapter(
             val user1 = auth.currentUser
             val db = FirebaseFirestore.getInstance()
             val userMap = hashMapOf(
-                "user name" to user.name,
+                "user name" to user.Nickname,
                 "Added At" to System.currentTimeMillis()
             )
 

@@ -13,10 +13,11 @@ class MainPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
 
-        val text: TextView = findViewById(R.id.hello_text)
         val userName = intent.getStringExtra("userName") ?: "guest"
-        text.text = "Hello $userName"
         val password = intent.getStringExtra("password") ?: ""
+        val nickname = intent.getStringExtra("nickname") ?: ""
+        val Statustext = intent.getStringExtra("Statustext") ?: ""
+        findViewById<TextView>(R.id.nicknameTextView).text = "Welcome, $nickname!"
 
         // מסך אחריכפתור myProfile
             val my_profile_button = findViewById<Button>(R.id.my_profile_button)
@@ -24,6 +25,8 @@ class MainPage : AppCompatActivity() {
             val nextPage = Intent(this, MyProfile::class.java)
             nextPage.putExtra("myProfile", userName)
             nextPage.putExtra("password", password)
+            nextPage.putExtra("nickname", nickname)
+            nextPage.putExtra("Statustext", Statustext)
             startActivity(nextPage)
         }
         // Main buttons actions

@@ -16,11 +16,6 @@ class StartWorkoutMain : AppCompatActivity() {
             val nextPage = Intent(this, RunWorkout::class.java)
             startActivity(nextPage) }
 
-        val LastWorkout = findViewById<Button>(R.id.LastWorkout)
-        LastWorkout.setOnClickListener {
-            val nextPage = Intent(this, LastWorkouts::class.java)
-            startActivity(nextPage)}
-
         val walkButton = findViewById<Button>(R.id.walkButton)
         walkButton.setOnClickListener {
             val nextPage = Intent(this, WalkWorkout::class.java)

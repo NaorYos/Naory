@@ -16,7 +16,7 @@ class FriendProfile : AppCompatActivity() {
         val emailTextView: TextView = findViewById(R.id.friendEmail)
 
         if (user != null) {
-            nameTextView.text = "Name: ${user.name}"
+            nameTextView.text = "Name: ${user.Nickname}"
             emailTextView.text = "Email: ${user.email}"
         }
     }

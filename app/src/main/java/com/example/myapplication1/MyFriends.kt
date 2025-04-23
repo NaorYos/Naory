@@ -64,13 +64,12 @@ class MyFriends : AppCompatActivity() {
                 val filteredUsers = mutableListOf<UserClass>()
                 for (document in result) {
                     val user = UserClass(
-                        points = document.id,
-                        name = document.getString("name") ?: "",
+                        Nickname = document.getString("name") ?: "",
                         email = document.getString("email") ?: ""
                     )
                     // הוסף את המשתמש לרשימה רק אם הוא מתאים לחיפוש ואינו המשתמש הנוכחי
-                    if (user.points != currentUserId &&
-                        (user.name.contains(query, ignoreCase = true) ||
+                    if (
+                        (user.Nickname.contains(query, ignoreCase = true) ||
                          user.email.contains(query, ignoreCase = true))) {
                         filteredUsers.add(user)
                     }
@@ -97,8 +96,7 @@ class MyFriends : AppCompatActivity() {
                 .addOnSuccessListener { userFriendDocs ->
                     for (document in userFriendDocs) {
                         val user = UserClass(
-                            points = document.id,
-                            name = document.getString("name") ?: "",
+                            Nickname = document.getString("name") ?: "",
                             email = document.id ?: "",
                             isFriend = true
                         )

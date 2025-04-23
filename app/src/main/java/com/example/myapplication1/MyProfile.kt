@@ -19,7 +19,17 @@ class MyProfile  : AppCompatActivity() {
             val userName = intent.getStringExtra("myProfile") ?: "guest"
             text.text = "$userName"
 
+            val text2:TextView = findViewById(R.id.Nicknametext)
+            val nickname = intent.getStringExtra("nickname") ?: "guest"
+            text2.text = "$nickname"
+
+            val text3:TextView = findViewById(R.id.Statustext)
+            val Statustext = intent.getStringExtra("Statustext") ?: "guest"
+            text3.text = "$Statustext"
+
         }
     }
+
+
 
 
