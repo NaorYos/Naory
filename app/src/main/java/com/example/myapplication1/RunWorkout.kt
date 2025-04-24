@@ -1,11 +1,13 @@
 package com.example.myapplication1
 
+import android.content.Context // --------------------------
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import android.widget.EditText
 
 class RunWorkout : AppCompatActivity() {
 
@@ -21,6 +23,9 @@ class RunWorkout : AppCompatActivity() {
         val timerTextView: TextView = findViewById(R.id.timerTextView)
         val runButton: Button = findViewById(R.id.runButton)
         val resetButton: Button = findViewById(R.id.resetButton)
+        val saveButton: Button = findViewById(R.id.saveButton) // --------------------------
+        val summaryTextView: TextView = findViewById(R.id.summaryTextView) // --------------------------
+        val kmEditText: EditText = findViewById(R.id.kmEditText)
 
         timerRunnable = object : Runnable {
             override fun run() {
@@ -50,6 +55,24 @@ class RunWorkout : AppCompatActivity() {
             timeElapsed = 0
             timerTextView.text = formatTime(timeElapsed)
             runButton.text = "Run"
+            kmEditText.setText("")
+            summaryTextView.text = "" // --------------------------
+        }
+
+        saveButton.setOnClickListener {
+            val kilometers = kmEditText.text.toString().toFloatOrNull() ?: 0f // --------------------------
+            val time = formatTime(timeElapsed) // --------------------------
+
+            // -------------------------- Save to SharedPreferences
+            val sharedPref = getSharedPreferences("WorkoutPrefs", Context.MODE_PRIVATE)
+            with(sharedPref.edit()) {
+                putFloat("last_km", kilometers)
+                putString("last_time", time)
+                apply()
+            }
+
+            // -------------------------- Show in summary
+            summaryTextView.text = "Saved:\nTime: $time\nDistance: ${"%.2f".format(kilometers)} km"
         }
     }
 

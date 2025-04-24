@@ -16,7 +16,6 @@ class MainPage : AppCompatActivity() {
         val userName = intent.getStringExtra("userName") ?: "guest"
         val password = intent.getStringExtra("password") ?: ""
         val nickname = intent.getStringExtra("nickname") ?: ""
-        val Statustext = intent.getStringExtra("Statustext") ?: ""
         findViewById<TextView>(R.id.nicknameTextView).text = "Welcome, $nickname!"
 
         // מסך אחריכפתור myProfile
@@ -26,7 +25,6 @@ class MainPage : AppCompatActivity() {
             nextPage.putExtra("myProfile", userName)
             nextPage.putExtra("password", password)
             nextPage.putExtra("nickname", nickname)
-            nextPage.putExtra("Statustext", Statustext)
             startActivity(nextPage)
         }
         // Main buttons actions

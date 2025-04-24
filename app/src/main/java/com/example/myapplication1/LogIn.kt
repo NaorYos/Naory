@@ -32,7 +32,6 @@ class Login : AppCompatActivity() {
                 val password = findViewById<EditText>(R.id.password).text.toString()
                 val Username = findViewById<EditText>(R.id.Username).text.toString()
                 val Nickname = findViewById<EditText>(R.id.Nickname).text.toString()
-                val Statustext = findViewById<EditText>(R.id.Statustext).text.toString()
                 auth.signInWithEmailAndPassword(Username, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -42,7 +41,6 @@ class Login : AppCompatActivity() {
                             nextPage.putExtra("userName",Username)
                             nextPage.putExtra("password", password)
                             nextPage.putExtra("nickname", Nickname)
-                            nextPage.putExtra("Statustext", Statustext)
                             startActivity(nextPage)} else {
 
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
